@@ -46,17 +46,7 @@ detector = RTRelModel(classes=train.ind_to_classes, aff_classes=train.ind_to_aff
                       use_tanh=conf.use_tanh,
                       limit_vision=conf.limit_vision
                       )
-            
-# Version 1
-# # Freeze the detector
-# for n, param in detector.detector.named_parameters():
-#     param.requires_grad = False
-# # unfreeze the feature extractor
-# for _, param in detector.detector.features.named_parameters():
-#     param.requires_grad = True
 
-# Version 2
-# only freeze rpn head
 for _, param in detector.detector.rpn_head.named_parameters():
     param.requires_grad = False
 print(print_para(detector), flush=True)
@@ -144,7 +134,6 @@ def train_batch(b, verbose=False):
     :return:
     """
     result = detector[b]
-    # weights_np = np.array([1., 0.1, 1., 1.])
     weights_np = np.array([10., 1., 10., 10.])
     weights_np = np.tile(weights_np, (int(result.rel_dists.size(0)), 1))
     weights = torch.cuda.FloatTensor(weights_np)

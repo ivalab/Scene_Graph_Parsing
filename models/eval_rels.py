@@ -48,15 +48,9 @@ detector.cuda()
 ckpt = torch.load(conf.ckpt)
 
 optimistic_restore(detector, ckpt['state_dict'])
-# if conf.mode == 'sgdet':
-#     det_ckpt = torch.load('checkpoints/new_vgdet/vg-19.tar')['state_dict']
-#     detector.detector.bbox_fc.weight.data.copy_(det_ckpt['bbox_fc.weight'])
-#     detector.detector.bbox_fc.bias.data.copy_(det_ckpt['bbox_fc.bias'])
-#     detector.detector.score_fc.weight.data.copy_(det_ckpt['score_fc.weight'])
-#     detector.detector.score_fc.bias.data.copy_(det_ckpt['score_fc.bias'])
 
 all_pred_entries = []
-def val_batch(batch_num, b, evaluator, thrs=(20, 50, 100)):
+def val_batch(batch_num, b, evaluator):
     det_res = detector[b]
     if conf.num_gpus == 1:
         det_res = [det_res]
