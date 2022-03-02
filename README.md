@@ -29,6 +29,11 @@ python models/train_rels_gt.py -m sgcls -model rtnet -order leftright -nl_obj 2 
 To be noticed, the training of scene graph detection is not performed in this work since the aim of pretraining on scene graph parsing is to 
 help the network interpret relationships between object. Generating proper Region-of-interest is not our goal.
 
+Lastly, to evaluate trained model for scene graph classification, run
+```
+python models/eval_rels.py -m sgcls -model rtnet -order leftright -nl_obj 2 -nl_edge 4 -b 3 -clip 5 -p 100 -hidden_dim 512 -pooling_dim 4096 -resnet -limit_vision -lr 1e-3 -ngpu 1 -test -ckpt checkpoints/sgcls/vgrel-xx.tar
+```
+
 ## License
 GKNet is released under the MIT License (refer to the LICENSE file for details). Portions of codes are borrowed from [Neural motifs](https://github.com/rowanz/neural-motifs). Please refer to the regional License of this project.
 
