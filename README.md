@@ -35,7 +35,7 @@ python models/eval_rels.py -m sgcls -model rtnet -order leftright -nl_obj 2 -nl_
 ```
 
 ## License
-GKNet is released under the MIT License (refer to the LICENSE file for details). Portions of codes are borrowed from [Neural motifs](https://github.com/rowanz/neural-motifs). Please refer to the regional License of this project.
+GKNet is released under the MIT License (refer to the LICENSE file for details). Portions of codes are borrowed from [Neural motifs](https://github.com/rowanz/neural-motifs). Please refer to the original License of this project.
 
 ## Citation
 If you find this work is helpful and use it in your work, please cite:
