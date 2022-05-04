@@ -1,6 +1,10 @@
 # Scene_Graph_Parsing
 Pretraining scene graph parsing tasks for [symbolic goal learning](https://github.com/ivalab/mmf) of robotic manipulation.
 
+Modal illustration:
+![sgp](https://user-images.githubusercontent.com/27162640/166804599-0ec1dfb0-0674-41a2-a1c9-c68151903c8e.png)
+
+
 ## Installation
 1. Create a conda environment
 ```
